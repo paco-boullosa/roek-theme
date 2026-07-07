@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(shopify theme *)",
+      "WebFetch(domain:www.judithandcharles.com)",
+      "Bash(sed -n '/{% schema %}/,/{% endschema %}/p' sections/image-with-text.liquid)",
+      "Bash(sed -n '/{% schema %}/,/{% endschema %}/p' sections/rich-text.liquid)",
+      "Bash(sed -n '/{% schema %}/,/{% endschema %}/p' sections/email-signup-banner.liquid)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import json; json.load\\(open\\('config/settings_data.json'\\)\\); print\\('valid json'\\)\")",
+      "Bash(kill 16509)",
+      "Bash(shopify auth *)",
+      "Bash(kill 16726 16669)",
+      "Bash(ls -la ~/.config/shopify 2>&1)",
+      "Read(//Users/franciscoboullosa/.config/**)"
+    ]
+  }
+}
