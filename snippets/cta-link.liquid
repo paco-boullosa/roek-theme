@@ -1,0 +1,24 @@
+{% comment %}
+  Renders a minimalist text + arrow CTA link (no button background/border).
+  On hover, only the arrow slides slightly to the right.
+
+  Accepts:
+  - url: {String} link URL (optional, renders as disabled link when blank)
+  - label: {String} link text
+  - class: {String} additional classes (optional)
+
+  Usage:
+  {% render 'cta-link', url: block.settings.button_link, label: block.settings.button_label %}
+{% endcomment %}
+
+<a
+  {% if url == blank %}
+    role="link" aria-disabled="true"
+  {% else %}
+    href="{{ url }}"
+  {% endif %}
+  class="cta-link{% if class %} {{ class }}{% endif %}"
+>
+  <span class="cta-link__text">{{- label | escape -}}</span>
+  <span class="cta-link__arrow svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+</a>

@@ -1,4 +1,5 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+{{ 'component-cta-link.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -86,17 +87,23 @@
                   </div>
                 {%- when 'button' -%}
                   {%- if block.settings.button_label != blank -%}
-                    <a
-                      {% if block.settings.button_link == blank %}
-                        role="link" aria-disabled="true"
-                      {% else %}
-                        href="{{ block.settings.button_link }}"
-                      {% endif %}
-                      class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
-                      {{ block.shopify_attributes }}
-                    >
-                      {{ block.settings.button_label | escape }}
-                    </a>
+                    {%- if block.settings.button_arrow_style -%}
+                      <div {{ block.shopify_attributes }}>
+                        {%- render 'cta-link', url: block.settings.button_link, label: block.settings.button_label -%}
+                      </div>
+                    {%- else -%}
+                      <a
+                        {% if block.settings.button_link == blank %}
+                          role="link" aria-disabled="true"
+                        {% else %}
+                          href="{{ block.settings.button_link }}"
+                        {% endif %}
+                        class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                        {{ block.shopify_attributes }}
+                      >
+                        {{ block.settings.button_label | escape }}
+                      </a>
+                    {%- endif -%}
                   {%- endif -%}
               {%- endcase -%}
             {%- endfor -%}
@@ -463,6 +470,13 @@
           "id": "button_style_secondary",
           "default": false,
           "label": "t:sections.image-with-text.blocks.button.settings.outline_button.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_arrow_style",
+          "default": false,
+          "label": "Mostrar como enlace de texto con flecha",
+          "info": "En vez de un botón sólido/outline, muestra el texto con una flecha que se desplaza al pasar el ratón."
         }
       ]
     }

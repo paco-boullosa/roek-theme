@@ -12,7 +12,8 @@
       "Bash(shopify auth *)",
       "Bash(kill 16726 16669)",
       "Bash(ls -la ~/.config/shopify 2>&1)",
-      "Read(//Users/franciscoboullosa/.config/**)"
+      "Read(//Users/franciscoboullosa/.config/**)",
+      "Bash(python3 -c \"import json; json.load\\(open\\('sections/footer-group.json'\\)\\)\")"
     ]
   }
 }

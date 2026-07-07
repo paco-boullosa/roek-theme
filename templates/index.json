@@ -15,25 +15,23 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "La nueva colección ya está aquí",
+            "heading": "New season Autumn 2026",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Piezas atemporales, pensadas para durar.</p>"
+            "text": "<p>The arrival of Pre-Fall introduces a sharper perspective on dressing with clean tailoring and versatile layers.</p>"
           }
         },
         "buttons": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Comprar ahora",
+            "button_label_1": "Shop Suits & Outfits",
             "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "Ver Novedades",
-            "button_link_2": "shopify://collections/all",
-            "button_style_secondary_2": true
+            "button_label_2": "",
+            "button_link_2": ""
           }
         }
       },
@@ -41,6 +39,9 @@
         "heading",
         "text",
         "buttons"
+      ],
+      "custom_css": [
+        "p {line-height: 2.3rem; font-size: 1.5rem; max-width: 85%;}"
       ],
       "settings": {
         "media_type": "image",
@@ -52,10 +53,63 @@
         "overlay_opacity": 25,
         "desktop_content_position": "bottom-left",
         "desktop_content_alignment": "left",
-        "mobile_content_alignment": "center",
+        "mobile_content_alignment": "left",
         "color_scheme": "scheme-3",
         "padding_top": 40,
         "padding_bottom": 60
+      }
+    },
+    "testimonial": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "What our customers are saying",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "“…men in my family wear this brand to every job interview, event, and work day. Our favorite pieces are woven into our best memories.”",
+            "heading_size": "h2"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "About Us",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_arrow_style": true
+          }
+        }
+      },
+      "block_order": [
+        "caption",
+        "heading",
+        "button"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.image-with-text__content {padding: 0rem 8rem 0rem 0rem; }}",
+        "p {letter-spacing: 0.02rem; margin-bottom: 1.4rem;}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/JAN-HP-ABOUTUS-TILE-1.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "padding_top": 28,
+        "padding_bottom": 32
       }
     },
     "promo_banner_1": {
@@ -80,7 +134,8 @@
           "settings": {
             "button_label": "Comprar rebajas",
             "button_link": "shopify://collections/all",
-            "button_style_secondary": false
+            "button_style_secondary": false,
+            "button_arrow_style": false
           }
         }
       },
@@ -126,7 +181,8 @@
           "settings": {
             "button_label": "Ver novedades",
             "button_link": "shopify://collections/all",
-            "button_style_secondary": false
+            "button_style_secondary": false,
+            "button_arrow_style": false
           }
         }
       },
@@ -148,40 +204,6 @@
         "color_scheme": "scheme-1",
         "padding_top": 12,
         "padding_bottom": 12
-      }
-    },
-    "testimonial": {
-      "type": "rich-text",
-      "blocks": {
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>“Llevo esta marca a cada entrevista de trabajo, a cada evento y a cada día en la oficina.”</p>"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Sobre nosotros",
-            "button_link": "",
-            "button_style_secondary": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "text",
-        "button"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-2",
-        "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 80
       }
     },
     "featured_collection": {
@@ -248,9 +270,9 @@
   },
   "order": [
     "hero_banner",
+    "testimonial",
     "promo_banner_1",
     "promo_banner_2",
-    "testimonial",
     "featured_collection",
     "newsletter"
   ]
