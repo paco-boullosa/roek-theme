@@ -51,6 +51,7 @@
                           </button>
                           <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                             {%- for childlink in link.links -%}
+                              {%- unless childlink.title == '-' -%}
                               <li>
                                 {%- if childlink.links == blank -%}
                                   <a
@@ -114,6 +115,7 @@
                                   </details>
                                 {%- endif -%}
                               </li>
+                              {%- endunless -%}
                             {%- endfor -%}
                           </ul>
                         </div>

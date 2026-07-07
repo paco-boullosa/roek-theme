@@ -112,24 +112,26 @@
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .header-wrapper--transparent:not(.scrolled-past-header) {
+    .header-wrapper--transparent:not(.scrolled-past-header):not(.menu-open):not(.header-hovered) {
       background: transparent;
     }
 
-    .header-wrapper--transparent:not(.scrolled-past-header) .header,
-    .header-wrapper--transparent:not(.scrolled-past-header) .header a,
-    .header-wrapper--transparent:not(.scrolled-past-header) .header__icon .svg-wrapper,
-    .header-wrapper--transparent:not(.scrolled-past-header) .list-menu__item {
+    .header-wrapper--transparent:not(.scrolled-past-header):not(.menu-open):not(.header-hovered) .header,
+    .header-wrapper--transparent:not(.scrolled-past-header):not(.menu-open):not(.header-hovered) .header a,
+    .header-wrapper--transparent:not(.scrolled-past-header):not(.menu-open):not(.header-hovered) .header__icon .svg-wrapper,
+    .header-wrapper--transparent:not(.scrolled-past-header):not(.menu-open):not(.header-hovered) .list-menu__item {
       color: {{ section.settings.transparent_text_color }};
     }
 
-    .header-wrapper--transparent:not(.scrolled-past-header) .header__icon svg,
-    .header-wrapper--transparent:not(.scrolled-past-header) .header__heading-logo {
+    .header-wrapper--transparent:not(.scrolled-past-header):not(.menu-open):not(.header-hovered) .header__icon svg,
+    .header-wrapper--transparent:not(.scrolled-past-header):not(.menu-open):not(.header-hovered) .header__heading-logo {
       fill: {{ section.settings.transparent_text_color }};
       color: {{ section.settings.transparent_text_color }};
     }
 
-    .header-wrapper--transparent.scrolled-past-header {
+    .header-wrapper--transparent.scrolled-past-header,
+    .header-wrapper--transparent.menu-open,
+    .header-wrapper--transparent.header-hovered {
       background-color: rgb(var(--color-background));
       box-shadow: 0 1px 0 rgba(var(--color-foreground), 0.08);
     }
@@ -380,6 +382,11 @@
       this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
       window.addEventListener('scroll', this.onScrollHandler, false);
 
+      if (matchMedia('(pointer: fine)').matches) {
+        this.addEventListener('mouseenter', () => this.classList.add('header-hovered'));
+        this.addEventListener('mouseleave', () => this.classList.remove('header-hovered'));
+      }
+
       this.createObserver();
     }
 
@@ -507,7 +514,7 @@
 {
   "name": "t:sections.header.name",
   "class": "section-header",
-  "max_blocks": 3,
+  "max_blocks": 12,
   "settings": [
     {
       "type": "select",
@@ -700,6 +707,102 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "mega_menu_image",
+      "name": "Imagen de mega menú",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item_title",
+          "label": "Enlace del menú principal",
+          "info": "Debe coincidir exactamente con el texto del enlace de primer nivel (ej. \"Shop\"). La imagen aparecerá en el mega menú de ese enlace."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Enlace de la imagen"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Texto superpuesto",
+          "default": "New Arrivals"
+        }
+      ]
+    },
+    {
+      "type": "mega_menu_text",
+      "name": "Contacto de mega menú",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item_title",
+          "label": "Enlace del menú principal",
+          "info": "Debe coincidir exactamente con el texto del enlace de primer nivel (ej. \"About\"). El bloque aparecerá bajo los enlaces de ese mega menú."
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Título",
+          "default": "Our sales team is ready to assist you"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Texto",
+          "default": "<p>Mon to Fri, 9am - 5pm ET</p>"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "Email de contacto"
+        },
+        {
+          "type": "text",
+          "id": "email_label",
+          "label": "Texto del enlace de email",
+          "default": "Email"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Teléfono de contacto"
+        },
+        {
+          "type": "text",
+          "id": "phone_label",
+          "label": "Texto del enlace de teléfono",
+          "default": "Call"
+        }
+      ]
+    },
+    {
+      "type": "mega_menu_layout",
+      "name": "Diseño de mega menú",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item_title",
+          "label": "Enlace del menú principal",
+          "info": "Debe coincidir exactamente con el texto del enlace de primer nivel (ej. \"Shop\"). Para dividir sus enlaces en 2 columnas, añade un enlace llamado \"-\" en el menú (Navegación) justo donde quieras cortar: todo lo anterior irá a la columna 1 y lo posterior a la columna 2."
+        },
+        {
+          "type": "range",
+          "id": "image_max_height",
+          "min": 200,
+          "max": 800,
+          "step": 20,
+          "unit": "px",
+          "label": "Alto máximo de las imágenes",
+          "default": 480
+        }
+      ]
     }
   ]
 }

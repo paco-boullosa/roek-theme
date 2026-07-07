@@ -23,50 +23,145 @@
                 >
                   {{- link.title | escape -}}
                 </span>
-                {{- 'icon-caret.svg' | inline_asset_content -}}
               </summary>
+              {%- liquid
+                assign link_title_downcase = link.title | downcase
+                assign mega_image_count = 0
+                assign mega_contact_block = blank
+                assign mega_layout_block = blank
+                for block in section.blocks
+                  assign block_menu_title_downcase = block.settings.menu_item_title | downcase
+                  if block.settings.menu_item_title != blank and block_menu_title_downcase == link_title_downcase
+                    if block.type == 'mega_menu_image'
+                      assign mega_image_count = mega_image_count | plus: 1
+                    elsif block.type == 'mega_menu_text' and mega_contact_block == blank
+                      assign mega_contact_block = block
+                    elsif block.type == 'mega_menu_layout' and mega_layout_block == blank
+                      assign mega_layout_block = block
+                    endif
+                  endif
+                endfor
+
+                assign mega_image_height = 480
+                if mega_layout_block != blank and mega_layout_block.settings.image_max_height != blank
+                  assign mega_image_height = mega_layout_block.settings.image_max_height
+                endif
+
+                assign has_column_separator = false
+                for childlink in link.links
+                  if childlink.title == '-'
+                    assign has_column_separator = true
+                  endif
+                endfor
+              -%}
               <div
                 id="MegaMenu-Content-{{ forloop.index }}"
                 class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
                 tabindex="-1"
               >
-                <ul
-                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
-                  role="list"
-                >
-                  {%- for childlink in link.links -%}
-                    <li>
-                      <a
-                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                        href="{{ childlink.url }}"
-                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
-                        {% if childlink.current %}
-                          aria-current="page"
-                        {% endif %}
-                      >
-                        {{ childlink.title | escape }}
-                      </a>
-                      {%- if childlink.links != blank -%}
-                        <ul class="list-unstyled" role="list">
-                          {%- for grandchildlink in childlink.links -%}
-                            <li>
-                              <a
-                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                href="{{ grandchildlink.url }}"
-                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
-                                {% if grandchildlink.current %}
-                                  aria-current="page"
-                                {% endif %}
-                              >
-                                {{ grandchildlink.title | escape }}
-                              </a>
-                            </li>
+                <div class="mega-menu__inner{% if mega_image_count > 0 %} mega-menu__inner--with-images{% endif %}">
+                  <div class="mega-menu__column">
+                    {%- if has_column_separator -%}
+                      <div class="mega-menu__link-columns">
+                        <ul class="mega-menu__list{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}" role="list">
+                          {%- for childlink in link.links -%}
+                            {%- if childlink.title == '-' -%}
+                              {%- break -%}
+                            {%- endif -%}
+                            {%- render 'mega-menu-link-item', link: link, childlink: childlink -%}
                           {%- endfor -%}
                         </ul>
-                      {%- endif -%}
-                    </li>
-                  {%- endfor -%}
-                </ul>
+                        <ul class="mega-menu__list{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}" role="list">
+                          {%- assign past_separator = false -%}
+                          {%- for childlink in link.links -%}
+                            {%- if past_separator -%}
+                              {%- render 'mega-menu-link-item', link: link, childlink: childlink -%}
+                            {%- endif -%}
+                            {%- if childlink.title == '-' -%}
+                              {%- assign past_separator = true -%}
+                            {%- endif -%}
+                          {%- endfor -%}
+                        </ul>
+                      </div>
+                    {%- else -%}
+                      <ul
+                        class="mega-menu__list{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                        role="list"
+                      >
+                        {%- for childlink in link.links -%}
+                          {%- render 'mega-menu-link-item', link: link, childlink: childlink -%}
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+
+                    {%- if mega_contact_block != blank -%}
+                      <div class="mega-menu__contact">
+                        {%- if mega_contact_block.settings.heading != blank -%}
+                          <p class="mega-menu__contact-heading">{{ mega_contact_block.settings.heading | escape }}</p>
+                        {%- endif -%}
+                        {%- if mega_contact_block.settings.text != blank -%}
+                          <div class="mega-menu__contact-text">{{ mega_contact_block.settings.text }}</div>
+                        {%- endif -%}
+                        {%- if mega_contact_block.settings.email != blank or mega_contact_block.settings.phone != blank -%}
+                          <div class="mega-menu__contact-links">
+                            {%- if mega_contact_block.settings.email != blank -%}
+                              <a href="mailto:{{ mega_contact_block.settings.email }}" class="mega-menu__contact-link link">
+                                {{- mega_contact_block.settings.email_label | escape -}}
+                              </a>
+                            {%- endif -%}
+                            {%- if mega_contact_block.settings.phone != blank -%}
+                              <a href="tel:{{ mega_contact_block.settings.phone }}" class="mega-menu__contact-link link">
+                                {{- mega_contact_block.settings.phone_label | escape -}}
+                              </a>
+                            {%- endif -%}
+                          </div>
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
+                  </div>
+
+                  {%- if mega_image_count > 0 -%}
+                    <div class="mega-menu__images" style="--mega-menu-image-height: {{ mega_image_height }}px;">
+                      {%- for block in section.blocks -%}
+                        {%- assign block_menu_title_downcase = block.settings.menu_item_title | downcase -%}
+                        {%- if block.type == 'mega_menu_image' and block.settings.menu_item_title != blank and block_menu_title_downcase == link_title_downcase -%}
+                          <a
+                            {% if block.settings.link != blank %}
+                              href="{{ block.settings.link }}"
+                            {% else %}
+                              role="link" aria-disabled="true"
+                            {% endif %}
+                            class="mega-menu__image-link"
+                            {{ block.shopify_attributes }}
+                          >
+                            {%- if block.settings.image != blank -%}
+                              {{
+                                block.settings.image
+                                | image_url: width: 1000
+                                | image_tag:
+                                  loading: 'lazy',
+                                  sizes: '(min-width: 990px) 25vw, 50vw',
+                                  widths: '400, 600, 800, 1000',
+                                  class: 'mega-menu__image',
+                                  alt: block.settings.image.alt | escape
+                              }}
+                            {%- else -%}
+                              <div class="mega-menu__image mega-menu__image--placeholder">
+                                {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                              </div>
+                            {%- endif -%}
+                            {%- if block.settings.label != blank -%}
+                              <span class="mega-menu__image-label">
+                                <span class="mega-menu__image-label-text">{{ block.settings.label | escape }}</span>
+                                <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+                              </span>
+                            {%- endif -%}
+                          </a>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </div>
+                  {%- endif -%}
+                </div>
               </div>
             </details>
           </header-menu>
@@ -92,3 +187,124 @@
     {%- endfor -%}
   </ul>
 </nav>
+
+<style>
+  .header__inline-menu > .list-menu--inline {
+    gap: 3.2rem;
+  }
+
+  .mega-menu > summary.list-menu__item {
+    padding-right: 0;
+  }
+
+  :root {
+    --mega-menu-offset-left: 10px;
+  }
+
+  .mega-menu__inner {
+    display: flex;
+    align-items: stretch;
+    gap: 4rem;
+    padding-left: var(--mega-menu-offset-left);
+    padding-right: 3rem;
+  }
+
+  .mega-menu__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .mega-menu__inner--with-images .mega-menu__column {
+    flex: 0 0 auto;
+    width: 40%;
+  }
+
+  .mega-menu__link-columns {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .mega-menu__link-columns .mega-menu__list {
+    flex: 1;
+  }
+
+  .mega-menu__contact-heading {
+    font-weight: 600;
+    margin: 0 0 0.4rem;
+  }
+
+  .mega-menu__contact-text {
+    color: rgba(var(--color-foreground), 0.75);
+    margin: 0 0 1rem;
+  }
+
+  .mega-menu__contact-links {
+    display: flex;
+    gap: 1.6rem;
+  }
+
+  .mega-menu__images {
+    display: flex;
+    flex: 1;
+    gap: 2rem;
+  }
+
+  .mega-menu__image-link {
+    position: relative;
+    display: block;
+    flex: 1;
+    min-height: var(--mega-menu-image-height, 480px);
+    max-height: var(--mega-menu-image-height, 480px);
+    overflow: hidden;
+    color: rgb(255 255 255);
+  }
+
+  .mega-menu__image,
+  .mega-menu__image--placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .mega-menu__image-label {
+    position: absolute;
+    left: 1.6rem;
+    bottom: 1.6rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.4rem;
+  }
+
+  .mega-menu__image-label .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .mega-menu__image-link:hover .mega-menu__image-label-text {
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 989px) {
+    .mega-menu__inner {
+      flex-direction: column;
+      padding-left: 3rem;
+    }
+
+    .mega-menu__inner--with-images .mega-menu__column {
+      width: 100%;
+    }
+
+    .mega-menu__link-columns {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .mega-menu__images {
+      width: 100%;
+    }
+  }
+</style>

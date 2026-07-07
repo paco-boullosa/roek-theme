@@ -38,6 +38,61 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "mega_menu_layout_Rrt3Ck": {
+          "type": "mega_menu_layout",
+          "settings": {
+            "menu_item_title": "",
+            "image_max_height": 560
+          }
+        },
+        "mega_menu_image_RxLBhU": {
+          "type": "mega_menu_image",
+          "settings": {
+            "menu_item_title": "About",
+            "image": "shopify://shop_images/store.webp",
+            "link": "",
+            "label": "New Arrivals"
+          }
+        },
+        "mega_menu_text_qMVMAM": {
+          "type": "mega_menu_text",
+          "settings": {
+            "menu_item_title": "About",
+            "heading": "Our sales team is ready to assist you",
+            "text": "<p>Mon to Fri, 9am - 5pm ET</p>",
+            "email": "francisco.boullosa@gmail.com",
+            "email_label": "Email",
+            "phone": "+34659383636",
+            "phone_label": "Call"
+          }
+        },
+        "mega_menu_image_GXpaka": {
+          "type": "mega_menu_image",
+          "settings": {
+            "menu_item_title": "Shop",
+            "image": "shopify://shop_images/NAV-TILE-2_1.webp",
+            "link": "shopify://products/lightweight-denim",
+            "label": "New Arrivals"
+          }
+        },
+        "mega_menu_image_abrgRf": {
+          "type": "mega_menu_image",
+          "settings": {
+            "menu_item_title": "Shop",
+            "image": "shopify://shop_images/NAV-TILE-1_1.webp",
+            "link": "shopify://products/cotton-blazer",
+            "label": "New Arrivals"
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_layout_Rrt3Ck",
+        "mega_menu_image_RxLBhU",
+        "mega_menu_text_qMVMAM",
+        "mega_menu_image_GXpaka",
+        "mega_menu_image_abrgRf"
+      ],
       "settings": {
         "logo_position": "middle-center",
         "mobile_logo_position": "center",

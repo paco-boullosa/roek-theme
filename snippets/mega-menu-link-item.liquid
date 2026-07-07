@@ -1,0 +1,38 @@
+{% comment %}
+  Renders a single level-2 (+ level-3) link item for the mega menu.
+
+  Accepts:
+  - link: the top-level menu link
+  - childlink: the level-2 link to render
+{% endcomment %}
+
+<li>
+  <a
+    id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+    href="{{ childlink.url }}"
+    class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+    {% if childlink.current %}
+      aria-current="page"
+    {% endif %}
+  >
+    {{ childlink.title | escape }}
+  </a>
+  {%- if childlink.links != blank -%}
+    <ul class="list-unstyled" role="list">
+      {%- for grandchildlink in childlink.links -%}
+        <li>
+          <a
+            id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+            href="{{ grandchildlink.url }}"
+            class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+            {% if grandchildlink.current %}
+              aria-current="page"
+            {% endif %}
+          >
+            {{ grandchildlink.title | escape }}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</li>
