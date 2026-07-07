@@ -13,7 +13,9 @@
       "Bash(kill 16726 16669)",
       "Bash(ls -la ~/.config/shopify 2>&1)",
       "Read(//Users/franciscoboullosa/.config/**)",
-      "Bash(python3 -c \"import json; json.load\\(open\\('sections/footer-group.json'\\)\\)\")"
+      "Bash(python3 -c \"import json; json.load\\(open\\('sections/footer-group.json'\\)\\)\")",
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp2.html -w \"HTTP:%{http_code}\\\\n\")",
+      "Read(//tmp/**)"
     ]
   }
 }
