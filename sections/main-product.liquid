@@ -38,7 +38,241 @@
       }
     }
 
+    @media screen and (max-width: 749px) {
+      #MainProduct-{{ section.id }} .product__description {
+        margin-bottom: 3rem;
+      }
+
+      /* Full-bleed mobile gallery: images fill the entire viewport width, no "peek" of the next slide */
+      #MainProduct-{{ section.id }} .page-width {
+        padding: 0;
+      }
+
+      /* Product info keeps its original horizontal margin */
+      #MainProduct-{{ section.id }} .product__info-wrapper {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      /* Clear the fixed transparent header so it doesn't overlap the top of the image */
+      .section-{{ section.id }}-padding {
+        padding-top: 5.1rem;
+      }
+
+      #MainProduct-{{ section.id }} .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide) {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      #MainProduct-{{ section.id }} .product__media-list {
+        margin-left: 0 !important;
+        width: 100% !important;
+        scroll-padding-left: 0;
+      }
+
+      #MainProduct-{{ section.id }} .product__media-list:after {
+        content: none;
+      }
+
+      #MainProduct-{{ section.id }} .product__media-list .product__media-item {
+        width: 100% !important;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      /* Prev/next arrows overlaid on the image, slide counter hidden */
+      #MainProduct-{{ section.id }} .product__media-wrapper .slider-buttons {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        justify-content: space-between;
+        padding: 0 1.2rem;
+        margin: 0;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      #MainProduct-{{ section.id }} .product__media-wrapper .slider-counter {
+        display: none !important;
+      }
+
+      #MainProduct-{{ section.id }} .product__media-wrapper .slider-button {
+        pointer-events: auto;
+        background: transparent;
+        border-radius: 0;
+        width: 3.6rem;
+        height: 3.6rem;
+        color: rgba(255, 255, 255, 0.85);
+        box-shadow: none;
+      }
+
+      #MainProduct-{{ section.id }} .product__media-wrapper .slider-button .icon {
+        height: 1.8rem;
+        filter: drop-shadow(0 0.1rem 0.3rem rgba(0, 0, 0, 0.35));
+      }
+    }
+
+    /* Base typography/spacing for the product page */
+    #MainProduct-{{ section.id }} .product__title {
+      margin-bottom: 0.5rem;
+    }
+
+    #MainProduct-{{ section.id }} .product__title h1 {
+      font-size: calc(var(--font-heading-scale) * 2.5rem);
+    }
+
+    #MainProduct-{{ section.id }} .product__info-container > * + * {
+      margin: 0.5rem 0;
+    }
+
+    #MainProduct-{{ section.id }} .price__container {
+      margin-bottom: 1.5rem;
+    }
+
+    #MainProduct-{{ section.id }} .product__tax {
+      display: none;
+    }
+
+    #MainProduct-{{ section.id }} .product__description p {
+      letter-spacing: 0;
+      line-height: 2.2rem;
+      font-size: 1.5rem;
+    }
+
+    /* Minimalist size/variant selector: plain text, underline on selected value */
+    #MainProduct-{{ section.id }} .product-form__input--pill {
+      border: none;
+      padding: 0;
+      margin: 0 0 2.5rem;
+    }
+
+    #MainProduct-{{ section.id }} .product-form__input--pill .form__label {
+      display: none;
+    }
+
+    #MainProduct-{{ section.id }} .product-form__input--pill input[type='radio'] + label {
+      border: none;
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      margin: 0 2.4rem 0 0;
+      font-size: 1.5rem;
+      letter-spacing: normal;
+      text-decoration: none;
+    }
+
+    #MainProduct-{{ section.id }} .product-form__input--pill input[type='radio'] + label:before {
+      display: none;
+    }
+
+    #MainProduct-{{ section.id }} .product-form__input--pill input[type='radio']:checked + label {
+      background: transparent;
+      color: rgb(var(--color-foreground));
+      text-decoration: underline;
+      text-underline-offset: 0.6rem;
+      text-decoration-thickness: 0.1rem;
+    }
+
+    #MainProduct-{{ section.id }} .product-form__input--pill input[type='radio']:hover + label {
+      border: none;
+      text-decoration: underline;
+      text-underline-offset: 0.6rem;
+    }
+
+    #MainProduct-{{ section.id }} .product-form__input--pill input[type='radio']:disabled + label,
+    #MainProduct-{{ section.id }} .product-form__input--pill input[type='radio'].disabled + label {
+      border: none;
+      color: rgba(var(--color-foreground), 0.35);
+      text-decoration: line-through;
+    }
+
+    /* Hide the zoom/magnify icon shown on hover over product images */
+    #MainProduct-{{ section.id }} .product__media-icon {
+      display: none !important;
+    }
+
+    /* "Tabla de tallas" takes the place of the removed "TALLAS" legend */
+    #MainProduct-{{ section.id }} .product-popup-modal__opener {
+      display: block;
+      margin: 0 0 1.4rem !important;
+    }
+
+    #MainProduct-{{ section.id }} .product-popup-modal__opener + variant-selects {
+      margin-top: 0 !important;
+    }
+
+    #MainProduct-{{ section.id }} .product-popup-modal__button {
+      font-size: 1.3rem;
+      min-height: auto;
+      padding: 0;
+      letter-spacing: 0.03rem;
+    }
+
+    /* Feature highlights: icon + text rows sourced from a per-product metafield */
+    #MainProduct-{{ section.id }} .product__feature-highlights {
+      margin: 2rem 0 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+    }
+
+    #MainProduct-{{ section.id }} .product__feature-highlights__item {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      margin-bottom: 1.6rem;
+    }
+
+    #MainProduct-{{ section.id }} .product__feature-highlights__item:last-child {
+      margin-bottom: 0;
+    }
+
+    #MainProduct-{{ section.id }} .product__feature-highlights__item .svg-wrapper {
+      flex-shrink: 0;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    #MainProduct-{{ section.id }} .product__feature-highlights__item span {
+      font-size: 1.4rem;
+      color: rgba(var(--color-foreground), 0.85);
+    }
+
+    /* Plus/minus accordion toggle instead of the default caret */
+    #MainProduct-{{ section.id }} .product__accordion--plus-minus .accordion__toggle-icon {
+      width: 1.2rem;
+      height: 1.2rem;
+      flex-shrink: 0;
+      align-self: center;
+    }
+
+    #MainProduct-{{ section.id }} .product__accordion--plus-minus .accordion__toggle-icon--minus {
+      display: none;
+    }
+
+    #MainProduct-{{ section.id }} .product__accordion--plus-minus details[open] .accordion__toggle-icon--plus {
+      display: none;
+    }
+
+    #MainProduct-{{ section.id }} .product__accordion--plus-minus details[open] .accordion__toggle-icon--minus {
+      display: block;
+    }
+
+    #MainProduct-{{ section.id }} .metafield-rich_text_field {
+      line-height: 2rem;
+      font-size: 1.4rem;
+    }
+
+    #MainProduct-{{ section.id }} .metafield-rich_text_field p {
+      margin: 0;
+    }
+
     @media screen and (min-width: 990px) {
+      #MainProduct-{{ section.id }} .product__description {
+        margin-bottom: 4rem;
+      }
+
       /* Full-bleed layout: media fills the left half edge-to-edge, up to the very top of the page */
       #MainProduct-{{ section.id }} {
         padding-top: 0 !important;
@@ -76,24 +310,30 @@
         padding: 14rem 6rem 6rem 6rem;
       }
 
-      /* Media fills its column with no aspect-ratio letterboxing */
-      #MainProduct-{{ section.id }} #MediaGallery-{{ section.id }},
-      #MainProduct-{{ section.id }} #GalleryViewer-{{ section.id }},
-      #MainProduct-{{ section.id }} .product__media-list,
-      #MainProduct-{{ section.id }} .product__media-item,
-      #MainProduct-{{ section.id }} .product__media-item > *,
+      /* Info column stays pinned while the stacked images scroll past on the left */
+      #MainProduct-{{ section.id }} .product__info-container.product__column-sticky {
+        top: 10rem;
+      }
+
+      /* Media column: no letterboxing, natural image width */
+      #MainProduct-{{ section.id }} #MediaGallery-{{ section.id }} {
+        position: relative;
+        display: block;
+        top: 0 !important;
+      }
+
+      #MainProduct-{{ section.id }} #GalleryViewer-{{ section.id }} {
+        position: static;
+        width: 100%;
+        height: auto;
+      }
+
       #MainProduct-{{ section.id }} .product-media-container,
       #MainProduct-{{ section.id }} .product__modal-opener,
       #MainProduct-{{ section.id }} .product__media,
       #MainProduct-{{ section.id }} .media {
-        height: 100% !important;
         width: 100% !important;
         max-width: none !important;
-      }
-
-      #MainProduct-{{ section.id }} .media {
-        padding-top: 0 !important;
-        margin: 0 !important;
       }
 
       #MainProduct-{{ section.id }} .media > img {
@@ -105,39 +345,26 @@
         object-fit: cover;
       }
 
-      /* Thumbnails float as a vertical strip over the top-left corner of the image */
-      #MainProduct-{{ section.id }} #MediaGallery-{{ section.id }} {
-        position: relative;
-        display: block;
-        top: 0 !important;
-      }
-
-      #MainProduct-{{ section.id }} #GalleryViewer-{{ section.id }} {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-      }
-
-      #MainProduct-{{ section.id }} .thumbnail-slider {
-        position: absolute;
-        top: 2rem;
-        left: 2rem;
-        z-index: 2;
-        width: 7rem;
-        height: auto;
-      }
-
-      #MainProduct-{{ section.id }} .thumbnail-list {
-        display: flex;
+      /* All product images stacked in a single column, no gaps between them */
+      #MainProduct-{{ section.id }} .product__media-list {
+        display: flex !important;
         flex-direction: column;
-        grid-template-columns: none;
-        gap: 1rem;
-        height: auto;
+        flex-wrap: nowrap;
+        gap: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
       }
 
-      #MainProduct-{{ section.id }} .thumbnail-list__item {
-        width: 100%;
+      #MainProduct-{{ section.id }} .product__media-item {
+        width: 100% !important;
+        max-width: none !important;
+        display: block !important;
+      }
+
+      /* Thumbnails hidden entirely on desktop */
+      #MainProduct-{{ section.id }} .thumbnail-slider {
+        display: none !important;
       }
     }
   {%- endstyle -%}
@@ -314,7 +541,15 @@
                 {%- when 'custom_liquid' -%}
                   {{ block.settings.custom_liquid }}
                 {%- when 'collapsible_tab' -%}
-                  <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
+                  {%- liquid
+                    assign tab_metafield_content = blank
+                    if block.settings.metafield_key != blank
+                      assign metafield_namespace = block.settings.metafield_key | split: '.' | first
+                      assign metafield_key_name = block.settings.metafield_key | split: '.' | last
+                      assign tab_metafield_content = product.metafields[metafield_namespace][metafield_key_name]
+                    endif
+                  -%}
+                  <div class="product__accordion accordion product__accordion--plus-minus quick-add-hidden" {{ block.shopify_attributes }}>
                     <details id="Details-{{ block.id }}-{{ section.id }}">
                       <summary>
                         <div class="summary__title">
@@ -323,14 +558,47 @@
                             {{ block.settings.heading | default: block.settings.page.title | escape }}
                           </h2>
                         </div>
-                        {{- 'icon-caret.svg' | inline_asset_content -}}
+                        <span class="accordion__toggle-icon accordion__toggle-icon--plus">{{- 'icon-plus.svg' | inline_asset_content -}}</span>
+                        <span class="accordion__toggle-icon accordion__toggle-icon--minus">{{- 'icon-minus.svg' | inline_asset_content -}}</span>
                       </summary>
                       <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
-                        {{ block.settings.content }}
-                        {{ block.settings.page.content }}
+                        {%- if tab_metafield_content != blank -%}
+                          {{ tab_metafield_content | metafield_tag }}
+                        {%- else -%}
+                          {{ block.settings.content }}
+                          {{ block.settings.page.content }}
+                        {%- endif -%}
                       </div>
                     </details>
                   </div>
+                {%- when 'feature_highlights' -%}
+                  {%- liquid
+                    assign feature_lines = blank
+                    if block.settings.metafield_key != blank
+                      assign feature_namespace = block.settings.metafield_key | split: '.' | first
+                      assign feature_key_name = block.settings.metafield_key | split: '.' | last
+                      assign feature_metafield = product.metafields[feature_namespace][feature_key_name]
+                      if feature_metafield != blank
+                        assign feature_lines = feature_metafield | newline_to_br | split: '<br />'
+                      endif
+                    endif
+                  -%}
+                  {%- if feature_lines != blank -%}
+                    <ul class="product__feature-highlights list-unstyled quick-add-hidden" {{ block.shopify_attributes }}>
+                      {%- for line in feature_lines -%}
+                        {%- assign line = line | strip -%}
+                        {%- if line == blank -%}
+                          {%- continue -%}
+                        {%- endif -%}
+                        {%- assign feature_icon = line | split: ':' | first | strip -%}
+                        {%- assign feature_label = line | split: ':' | last | strip -%}
+                        <li class="product__feature-highlights__item">
+                          {% render 'icon-accordion', icon: feature_icon %}
+                          <span>{{ feature_label }}</span>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
                 {%- when 'quantity_selector' -%}
                   <div
                     id="Quantity-Form-{{ section.id }}"
@@ -1322,6 +1590,29 @@
           "type": "page",
           "id": "page",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
+        },
+        {
+          "type": "text",
+          "id": "metafield_key",
+          "label": "Metafield por producto (opcional)",
+          "info": "namespace.key de un metafield de producto de tipo \"Rich text\", p.ej. custom.fit_info. Si el producto tiene valor, sustituye al contenido de arriba."
+        }
+      ]
+    },
+    {
+      "type": "feature_highlights",
+      "name": "Iconos de producto",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Muestra una lista de iconos + texto (p.ej. \"4-Way Stretch\", \"Moisture Wicking\") con contenido específico por producto."
+        },
+        {
+          "type": "text",
+          "id": "metafield_key",
+          "default": "custom.feature_highlights",
+          "label": "Metafield del producto",
+          "info": "Metafield tipo \"Multi-line text\". Una línea por característica, formato icono: Texto (ej. snowflake: Transpirable). Iconos válidos: los mismos que en los bloques de acordeón (leaf, recycle, snowflake, shirt, star, washing, etc.)."
         }
       ]
     },

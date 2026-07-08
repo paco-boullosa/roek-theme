@@ -15,7 +15,21 @@
       "Read(//Users/franciscoboullosa/.config/**)",
       "Bash(python3 -c \"import json; json.load\\(open\\('sections/footer-group.json'\\)\\)\")",
       "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp2.html -w \"HTTP:%{http_code}\\\\n\")",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp3.html -w \"HTTP:%{http_code}\\\\n\")",
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp4.html -w \"HTTP:%{http_code}\\\\n\")",
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp5.html -w \"HTTP:%{http_code}\\\\n\")",
+      "Bash(cat /tmp/pdp10.html | head -100)",
+      "Read(//private/tmp/**)",
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp11.html -w \"HTTP:%{http_code}\\\\n\")",
+      "Bash(grep -n \"Polaris-List__Item\" /tmp/pdp11.html)",
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp12.html -w \"HTTP:%{http_code}\\\\n\")",
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp13.html -w \"HTTP:%{http_code}\\\\n\")",
+      "Bash(python3 -)",
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp14.html -w \"HTTP:%{http_code}\\\\n\")",
+      "Bash(grep -n \"Polaris-List__Item\\\\|Polaris-Text--headingSm\\\\\">\" /tmp/pdp14.html)",
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp15.html -w \"HTTP:%{http_code}\\\\n\")",
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp16.html -w \"HTTP:%{http_code}\\\\n\")"
     ]
   }
 }
