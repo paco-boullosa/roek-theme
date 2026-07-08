@@ -45,8 +45,8 @@
       ],
       "settings": {
         "media_type": "image",
-        "image": "shopify://shop_images/97176833210BSBS-w5.webp",
-        "image_mobile": "shopify://shop_images/home-1-m.webp",
+        "image": "shopify://shop_images/nordic2.jpg",
+        "image_mobile": "shopify://shop_images/mob1b.webp",
         "video_autoplay": true,
         "video_loop": true,
         "image_height": "full",
@@ -145,6 +145,7 @@
         "button"
       ],
       "settings": {
+        "image": "shopify://shop_images/qq.jpg",
         "height": "large",
         "desktop_image_width": "large",
         "layout": "image_first",
@@ -192,6 +193,7 @@
         "button"
       ],
       "settings": {
+        "image": "shopify://shop_images/ww.webp",
         "height": "large",
         "desktop_image_width": "large",
         "layout": "text_first",

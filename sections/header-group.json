@@ -71,7 +71,7 @@
           "type": "mega_menu_image",
           "settings": {
             "menu_item_title": "Shop",
-            "image": "shopify://shop_images/NAV-TILE-2_1.webp",
+            "image": "shopify://shop_images/03-relaxed-pose.webp",
             "link": "shopify://products/lightweight-denim",
             "label": "New Arrivals"
           }
@@ -80,7 +80,7 @@
           "type": "mega_menu_image",
           "settings": {
             "menu_item_title": "Shop",
-            "image": "shopify://shop_images/NAV-TILE-1_1.webp",
+            "image": "shopify://shop_images/208cfcc31fc05eac72ff9f754ef9eb6c.jpg",
             "link": "shopify://products/cotton-blazer",
             "label": "New Arrivals"
           }
