@@ -29,7 +29,11 @@
       "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp14.html -w \"HTTP:%{http_code}\\\\n\")",
       "Bash(grep -n \"Polaris-List__Item\\\\|Polaris-Text--headingSm\\\\\">\" /tmp/pdp14.html)",
       "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp15.html -w \"HTTP:%{http_code}\\\\n\")",
-      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp16.html -w \"HTTP:%{http_code}\\\\n\")"
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp16.html -w \"HTTP:%{http_code}\\\\n\")",
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp_seo.html)",
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp_trust.html -w \"HTTP:%{http_code}\\\\n\")",
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp_badge.html -w \"HTTP:%{http_code}\\\\n\")",
+      "Bash(curl -s \"http://127.0.0.1:63461/products/sand-jacket\" -o /tmp/pdp_trust2.html -w \"HTTP:%{http_code}\\\\n\")"
     ]
   }
 }

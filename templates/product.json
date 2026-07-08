@@ -24,6 +24,10 @@
           "type": "title",
           "settings": {}
         },
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -31,7 +35,7 @@
         "size_chart_popup": {
           "type": "popup",
           "settings": {
-            "text": "Tabla de tallas",
+            "text": "Size guide",
             "page": "tabla-de-tallas"
           }
         },
@@ -40,6 +44,12 @@
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle"
+          }
+        },
+        "fit_note": {
+          "type": "fit_note",
+          "settings": {
+            "metafield_key": "custom.fit_info"
           }
         },
         "buy_buttons": {
@@ -59,34 +69,83 @@
             "metafield_key": "custom.feature_highlights"
           }
         },
-        "product_features_tab": {
+        "composition_tab": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Product Features",
-            "icon": "star",
+            "heading": "Composition and materials",
+            "icon": "shirt",
             "content": "",
             "page": "",
-            "metafield_key": "custom.product_features"
+            "metafield_key": "custom.composition_materials",
+            "link_url": "",
+            "link_label": "Leer más"
           }
         },
-        "fabric_care_tab": {
+        "origin_tab": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Fabric & Care",
+            "heading": "Manufacture and origin",
+            "icon": "map_pin",
+            "content": "",
+            "page": "",
+            "metafield_key": "custom.manufacturing_origin",
+            "link_url": "/pages/how-we-manufacture",
+            "link_label": "Cómo fabricamos"
+          }
+        },
+        "care_tab": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Garment care",
             "icon": "washing",
             "content": "",
             "page": "",
-            "metafield_key": "custom.fabric_care"
+            "metafield_key": "custom.fabric_care",
+            "link_url": "",
+            "link_label": "Leer más"
           }
         },
-        "fit_tab": {
+        "shipping_tab": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Fit",
-            "icon": "silhouette",
+            "heading": "Delivery and returns",
+            "icon": "truck",
             "content": "",
             "page": "",
-            "metafield_key": "custom.fit_info"
+            "metafield_key": "custom.shipping_returns",
+            "link_url": "",
+            "link_label": "Leer más"
+          }
+        },
+        "faq": {
+          "type": "faq",
+          "settings": {
+            "heading": "FAQs",
+            "metafield_key": "custom.faq"
+          }
+        },
+        "complementary": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Complete the look",
+            "make_collapsible_row": false,
+            "icon": "price_tag",
+            "product_list_limit": 10,
+            "products_per_page": 3,
+            "pagination_style": "counter",
+            "image_ratio": "square",
+            "enable_quick_add": false
+          }
+        },
+        "trust_badges": {
+          "type": "trust_badges",
+          "settings": {
+            "shipping_title": "Free shipping",
+            "shipping_subtitle": "On orders over 200€",
+            "returns_title": "15-day guarantee",
+            "returns_subtitle": "Love it or full refund",
+            "delivery_title": "Fast delivery",
+            "delivery_subtitle": "2-5 business days"
           }
         },
         "share": {
@@ -99,15 +158,21 @@
       "block_order": [
         "vendor",
         "title",
+        "rating",
         "price",
         "size_chart_popup",
         "variant_picker",
+        "fit_note",
         "buy_buttons",
         "description",
         "feature_highlights",
-        "product_features_tab",
-        "fabric_care_tab",
-        "fit_tab",
+        "composition_tab",
+        "origin_tab",
+        "care_tab",
+        "shipping_tab",
+        "faq",
+        "complementary",
+        "trust_badges",
         "share"
       ],
       "settings": {
