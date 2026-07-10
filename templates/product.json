@@ -90,7 +90,7 @@
             "page": "",
             "metafield_key": "custom.manufacturing_origin",
             "link_url": "/pages/how-we-manufacture",
-            "link_label": "Cómo fabricamos"
+            "link_label": "How we manufacture"
           }
         },
         "care_tab": {
@@ -219,11 +219,27 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "price-transparency": {
+      "type": "price-transparency",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "background_color": "#FAF8F6",
+        "eyebrow": "Honest by design",
+        "heading": "What you actually pay for",
+        "paragraph_1": "Every garment we make is designed and manufactured in Europe, and every euro of its price has a job. No guesswork, no hidden layers: this is how the price of one of our garments breaks down.",
+        "paragraph_2": "By selling directly to you, no wholesalers, no department stores, we skip the traditional retail markup and put that difference into fabric and construction instead.",
+        "bar_label": "Where each euro goes",
+        "footnote": "Figures shown are averages across our current collection. Middlemen, wholesale margins and department-store rents are the layers we removed, not the fabric.",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
     "disclosures",
-    "related-products"
+    "related-products",
+    "price-transparency"
   ]
 }

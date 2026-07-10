@@ -27,7 +27,15 @@
 {%- endif -%}
 
 {%- if request.page_type == 'product' -%}
-  <meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html }}">
+  {%- if request.page_type == 'product' -%}
+    {%- assign og_price = product.selected_or_first_available_variant.price | default: product.price -%}
+    {%- assign price_integer = og_price | divided_by: 100 -%}
+    {%- assign price_decimals = og_price | modulo: 100 -%}  
+    {%- if price_decimals < 10 -%}
+      {%- assign price_decimals = price_decimals | prepend: '0' -%}
+    {%- endif -%}
+    <meta property="og:price:amount" content="{{ price_integer }}.{{ price_decimals }}">
+  {%- endif -%}
   <meta property="og:price:currency" content="{{ cart.currency.iso_code }}">
 {%- endif -%}
 

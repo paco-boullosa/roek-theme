@@ -118,21 +118,21 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "The Summer Sale",
+            "heading": "Polo Collection",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Hasta -40% en piezas seleccionadas. Por tiempo limitado.</p>",
+            "text": "<p>Check our new collection of polo garments based on high cotton quality fabrics</p>",
             "text_style": "body"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Comprar rebajas",
+            "button_label": "Check collection",
             "button_link": "shopify://collections/all",
             "button_style_secondary": false,
             "button_arrow_style": false
@@ -145,11 +145,11 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/qq.jpg",
+        "image": "shopify://shop_images/ww.webp",
         "height": "large",
         "desktop_image_width": "large",
         "layout": "image_first",
-        "image_behavior": "none",
+        "image_behavior": "ambient",
         "content_layout": "overlap",
         "desktop_content_position": "middle",
         "desktop_content_alignment": "center",
@@ -173,14 +173,14 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Las novedades de temporada, recién llegadas.</p>",
+            "text": "<p>Overshirts, jackets and other urban garments that will set the trend in men’s fashion next year</p>",
             "text_style": "body"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Ver novedades",
+            "button_label": "TOTAL LOOK",
             "button_link": "shopify://collections/all",
             "button_style_secondary": false,
             "button_arrow_style": false
@@ -193,11 +193,11 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/ww.webp",
+        "image": "shopify://shop_images/qq.jpg",
         "height": "large",
         "desktop_image_width": "large",
         "layout": "text_first",
-        "image_behavior": "none",
+        "image_behavior": "zoom-in",
         "content_layout": "overlap",
         "desktop_content_position": "middle",
         "desktop_content_alignment": "center",
@@ -242,14 +242,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Únete y consigue un 10% de descuento",
+            "heading": "Join us and get 10% off",
             "heading_size": "h1"
           }
         },
         "paragraph": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Suscríbete para recibir novedades, lanzamientos exclusivos y ofertas.</p>"
+            "text": "<p>Subscribe to receive news, exclusive launches and special offers.</p>"
           }
         },
         "email_form": {
